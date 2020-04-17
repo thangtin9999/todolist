@@ -33,7 +33,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: 500;
 }
-#button-search {
+#btsearch {
   height: 34px;
   color: rgb(65, 160, 238);
   border-left: 0px;
@@ -42,8 +42,10 @@ body {
   text-align: center;
   text-decoration: none;
 }
-#button-search:active {
-  border: none;
+#btsearch:active,
+#btsearch:focus{
+  border:none;
+  outline: none;
 }
 
 /*------- phan menu trai----- */
@@ -68,34 +70,32 @@ body {
   font-weight: 500;
   border: 0px;
 }
-.list-group a {
-  color: rgb(52, 55, 61);
-  background-color: rgb(244, 244, 244);
-  border: 0px;
+button#val{
+  border: none;
   height: 45px;
   padding-left: 20px;
 }
-.list-group a:hover {
+button#val:hover {
   background-color: rgb(252, 252, 252);
+}
+button#val:active,
+button#val:focus{
+  border:none;
+  outline: none;
 }
 #main {
   width: 81.92%;
   height: 100%;
   float: right;
 }
-.row {
-  padding: 10px;
-  margin-right: 0px;
+div.row{
+  padding-left: 10px;
+  padding-bottom: 12px;
 }
-#rowrow {
-  margin-right: 0px;
+div.row > div{
+  margin-top: 10px;
 }
-#content-task {
-}
-#tasktoolbar {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-}
-#select-cat {
+#select_cat {
   width: 125px;
   border-left: none;
   padding: 0px;
@@ -105,7 +105,7 @@ option {
 }
 #form-task {
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 0px;
 }
 #addtask {
   font-size: 14px;
@@ -116,14 +116,14 @@ option {
 }
 #container {
 }
-#your-task {
+span#yourtask {
   font-size: 14px;
   font-weight: 500;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 #show-task {
   border-bottom: none;
-  padding-top: 12px;
+  padding-top: 5px;
   list-style-type: circle;
 }
 .list-group li {
@@ -154,17 +154,36 @@ ul {
   font-size: 16px;
   font-weight: bolder;
   color: #993333;
-}
-#edit button {
-  background-color: transparent;
   background-image: none;
-  border-color: transparent;
   box-shadow: none;
-  width: 25px;
-  height: 25px;
   color: #993333;
   padding: 0px;
   margin: 0px;
+  border:none;
+}
+button#edit:active,
+button#edit:focus{
+  border:none;
+  outline: none;
+}
+#remove {
+  width: 25px;
+  height: 25px;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: bolder;
+  color: #993333;
+  background-image: none;
+  box-shadow: none;
+  color: #993333;
+  padding:0px 15px 0px 0px;
+  margin: 0px;
+  border:none;
+}
+button#remove:active,
+button#remove:focus{
+  border:none;
+  outline: none;
 }
 select#cat-edit {
   width: 145px;

@@ -1,8 +1,6 @@
 <?php
 require_once('connection.php');
 if (isset($_POST["btn_save"])) {
-  // debug
-  var_dump($_POST);
   $content = $_POST["content"];
   $category = $_POST["category"];
   $sql = "INSERT INTO task(content,category,stat,createdate) VALUES ( '$content', '$category','1',now())";
@@ -17,19 +15,18 @@ if (isset($_POST["btn_save"])) {
   }
   echo "</br>Content: " . $content;
   //header("Location:../index.php");
-
 }
 ?>
 <!-- Phần nội dung-->
+<div id="main">
 <form action="./include/add-task.php" method="post">
-  <div id="main">
-    <div id="rowrow" class="row">
-      <div class="col-lg-6">
-        <span id="addtask" class="label label-success">Add a task</span>
-        <div id="form-task" class="input-group">
-          <input id="content-task" type="text" class="form-control" name="content" placeholder="Input task here...">
+  <div class="row">
+    <div class="col-lg-6">
+      <span id="addtask" class="label label-success">Add a task</span>
+      <div id="form-task" class="input-group">
+          <input id="content_task" type="text" class="form-control" name="content" placeholder="Input task here...">
           <span class="input-group-btn">
-            <select id="select-cat" class="form-control" id="exampleFormControlSelect1" name="category">
+            <select id="select_cat" class="form-control" id="exampleFormControlSelect1" name="category">
               <option value="1">My Day</option>
               <option value="2">Important</option>
               <option value="3">Planned</option>
@@ -39,11 +36,12 @@ if (isset($_POST["btn_save"])) {
           <span class="input-group-btn">
             <button id="button-save" class="btn btn-default" type="submit" name="btn_save">Save</button>
           </span>
-        </div>
       </div>
     </div>
-</form>
+  </div>
+  </form>
 
 
 
-<!-----------------------------------------------Show-task------------------------------------------------->
+
+  <!-----------------------------------------------Show-task------------------------------------------------->

@@ -1,22 +1,16 @@
 <?php
 require_once("connection.php");
-$sql = "SELECT * 
-            FROM task 
-            WHERE stat= 1 ORDER BY createdate desc;
-            ";
-$query = mysqli_query($conn, $sql);
+include('cat-task.php'); //Choose Category Feature
+include('task-done.php'); //Task Complete Feature
+include('search.php'); //Search Task Feature
+include('edit-task.php'); //Edit Task Feature
+include('remove-task.php');
+//include('add-task.php'); 
 ?>
-<?php
-if (isset($_GET["id_delete"])) {
-   $id = $_GET["id_delete"];
-   $sql = "UPDATE task SET stat = '0' WHERE id = $id";
-   mysqli_query($conn, $sql);
-   header("Location:../");
-   exit();
-}
-?>
+<!-- ------------------------ -->
+<!----------------------------------------------Show-task------------------------------------------------->
 <div id="container">
-   <span id="your-task" class="label label-warning">Your task</span>
+   <span id="yourtask" class="label label-warning">Your task</span>
    <ul id="show-task" class="list-group">
       <?php
       while ($data = mysqli_fetch_array($query)) {
@@ -32,6 +26,11 @@ if (isset($_GET["id_delete"])) {
                      <span id="edit" class="badge">
                         <button id="edit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal" value="<?php echo $data['id']; ?>">
                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                     </span>
+                     <span id="edit" class="badge">
+                        <button id="remove" type="button" class="btn btn-primary" value="<?php echo $data['id']; ?>">
+                           <span class="glyphicon glyphicon-remove"></span>
                         </button>
                      </span>
                   </li>
@@ -50,6 +49,11 @@ if (isset($_GET["id_delete"])) {
                            <span class="glyphicon glyphicon-pencil"></span>
                         </button>
                      </span>
+                     <span id="edit" class="badge">
+                        <button id="remove" type="button" class="btn btn-primary" value="<?php echo $data['id']; ?>">
+                           <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                     </span>
                   </li>
                </form>
             <?php break;
@@ -64,6 +68,11 @@ if (isset($_GET["id_delete"])) {
                      <span id="edit" class="badge">
                         <button id="edit" type="button" class="btn btn-primary" data-toggle="modal" data-target="#basicExampleModal" value="<?php echo $data['id']; ?>">
                            <span class="glyphicon glyphicon-pencil"></span>
+                        </button>
+                     </span>
+                     <span id="edit" class="badge">
+                        <button id="remove" type="button" class="btn btn-primary" value="<?php echo $data['id']; ?>">
+                           <span class="glyphicon glyphicon-remove"></span>
                         </button>
                      </span>
                   </li>
@@ -82,6 +91,11 @@ if (isset($_GET["id_delete"])) {
                            <span class="glyphicon glyphicon-pencil"></span>
                         </button>
                      </span>
+                     <span id="edit" class="badge">
+                        <button id="remove" type="button" class="btn btn-primary" value="<?php echo $data['id']; ?>">
+                           <span class="glyphicon glyphicon-remove"></span>
+                        </button>
+                     </span>
                   </li>
                </form>
       <?php break;
@@ -90,4 +104,5 @@ if (isset($_GET["id_delete"])) {
       ?>
    </ul>
 </div>
-<?php include('edit-task.php'); ?>
+<script language="javascript" src="./js/edit-task.js"></script>
+<script language="javascript" src="./js/remove-task.js"></script>
